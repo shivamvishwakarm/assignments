@@ -12,6 +12,7 @@ function calculateTotalSpentByCategory(transactions) {
   for (const transaction of transactions) {
       if (totalsByCategory[transaction.category]) {
           totalsByCategory[transaction.category] += transaction.price;
+          console.log(totalsByCategory[transaction.category]);
       } else {
           totalsByCategory[transaction.category] = transaction.price;
       }
@@ -22,6 +23,13 @@ function calculateTotalSpentByCategory(transactions) {
       totalSpent,
   }));
 }
-  
+
+
+calculateTotalSpentByCategory([
+  { itemName: 'item1', category: 'food', price: 100, timestamp: 1577836800000 },
+  { itemName: 'item2', category: 'food', price: 200, timestamp: 1577836800000 },
+  { itemName: 'item3', category: 'food', price: 300, timestamp: 1577836800000 },
+]);
+
 
 module.exports = calculateTotalSpentByCategory;

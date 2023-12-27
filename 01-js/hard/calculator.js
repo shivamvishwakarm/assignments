@@ -16,6 +16,50 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+// calculator.js
+class Calculator {
+    constructor() {
+      this.result = 0;
+    }
+  
+    add(value) {
+      this.result += value;
+    }
+  
+    subtract(value) {
+      this.result -= value;
+    }
+  
+    multiply(value) {
+      this.result *= value;
+    }
+  
+    divide(value) {
+      if (value === 0) {
+        throw new Error("Cannot divide by zero");
+      }
+      this.result /= value;
+    }
+  
+    clear() {
+      this.result = 0;
+    }
+  
+    calculate(expression) {
+      // Use eval for simplicity (note: eval has security implications)
+     let ans = eval(expression);
+     if(ans === Infinity || isNaN(ans)){
+       throw new Error("Invalid expression");
+     }
+        this.result = ans;
 
-module.exports = Calculator;
+
+    }
+  
+    getResult() {
+      return this.result;
+    }
+  }
+  
+  module.exports = Calculator;
+  
